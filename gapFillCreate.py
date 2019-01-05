@@ -32,7 +32,7 @@ def gapFiller(fileList, num):
             continue
         shutil.move(fileList[i], prefix + digify(i+1, num) + os.path.splitext(fileList[i])[1])
 
-# Function to rename files up to user-specified index counting down from last file.
+# Function to rename files after user-specified index counting down from last file.
 def gapCreator(fileList, num1, num2):
     for i in range(len(fileList) - 1, -1, -1):
         mo = digitsRegex.search(os.path.splitext(fileList[i])[0])

@@ -35,7 +35,7 @@ length = indexLength(prefixFiles[0])
 
 gapIndex = int(input('Insert a file after the file ending in the number: '))
 
-# Rename files up to user-specified index counting down from last file.
+# Rename files after user-specified index counting down from last file.
 for i in range(len(prefixFiles) - 1, -1, -1):
     mo = digitsRegex.search(os.path.splitext(prefixFiles[i])[0])
     if int(mo.group()) <= gapIndex:

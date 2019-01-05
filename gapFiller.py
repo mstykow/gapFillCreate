@@ -34,8 +34,8 @@ for file in allFiles:
 length = indexLength(prefixFiles[0])
 
 # Rename only those files that need it.
-# Note: it would have been much easier to just rename all files sequentially but in the interest of the
-# programming exercise the program was made more selective.
+# Note: it would have been much easier to just immediately rename all files sequentially but in
+# the interest of the programming exercise the program was made more selective.
 for i in range(len(prefixFiles)):
     mo = digitsRegex.search(os.path.splitext(prefixFiles[i])[0])
     if int(mo.group()) == (i + 1):

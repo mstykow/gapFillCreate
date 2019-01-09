@@ -19,7 +19,7 @@ def digify(num, nomLength):
 # Function to fill gaps by renaming only those files that need it.
 # Note: It would have been much easier to just immediately rename all files sequentially but in
 # the interest of the programming exercise the program was made more selective.
-def gapFiller(fileList):
+def gap_filler(fileList):
     for i in range(len(fileList)):
         filename = os.path.splitext(fileList[i])[0]
         mo1 = fullNumRegex.search(filename)
@@ -32,7 +32,7 @@ def gapFiller(fileList):
         shutil.move(fileList[i], fullNumRegex.sub(digify(i+1, fullNumLength), filename) + extension)
 
 # Function to rename files after user-specified index counting down from last file.
-def gapCreator(fileList, gapPosition):
+def gap_creator(fileList, gapPosition):
     for i in range(len(fileList) - 1, -1, -1):
         filename = os.path.splitext(fileList[i])[0]
         mo1 = fullNumRegex.search(filename)
@@ -58,7 +58,7 @@ option = ''
 while option != 'fill' and option != 'create':
     option = input('Would you like to "fill" or "create" a gap? ')
     if option == 'fill':
-        gapFiller(prefixFiles)
+        gap_filler(prefixFiles)
     elif option == 'create':
         gapIndex = int(input('Create a gap after the file ending in the number: '))
-        gapCreator(prefixFiles, gapIndex)
+        gap_creator(prefixFiles, gapIndex)
